@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: hello-world-resource-image
+spec:
+  type: image
+  params:
+    - name: url
+      # implicit DockerHub
+      value: cwansart/express-hello-world:tekton

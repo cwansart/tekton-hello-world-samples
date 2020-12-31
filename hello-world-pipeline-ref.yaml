@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: hello-world-pipeline
+spec:
+  - name: hello-world-build
+    taskRef:
+      name: hello-world-task
+    resources:
+      outputs:
+        - name: image
+          resource: hello-world-image
+  - name: hello-world-deploy
+    taskRef:
+      name: hello-world-deploy-task
+    resources:
+      inputs:
+        - name: image
+          resource: hello-world-image
+      from:
+        - hello-world-build

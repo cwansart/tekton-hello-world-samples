@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello-world-task
+spec:
+  steps:
+    - name: print-hello-world
+      image: ubuntu
+      command: ["echo"]
+      args: ["hello world"]
+## Now you can run `tkn task start hello-world-task` which will create a TaskRun object.

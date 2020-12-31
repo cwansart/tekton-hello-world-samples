@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: hello-world-task-run-spec
+spec:
+  taskSpec:
+    steps:
+      - name: print-hello-world
+        image: ubuntu
+        command: ["echo"]
+        args: ["Hello from Spec"]
